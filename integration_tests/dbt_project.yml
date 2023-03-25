@@ -1,6 +1,6 @@
 name: integration_tests
 
-profile: integration_tests
+profile: integration_tests_dbt_translate
 
 version: '1.0'
 config-version: 2

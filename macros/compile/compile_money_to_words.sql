@@ -7,7 +7,7 @@
   
     CREATE SCHEMA IF NOT EXISTS {{var('num2words_schema', target.schema)}};
     {{ dbt_translate.compile_money_to_words_en() }};
-    {#-- add new language here #}\
+    {#-- add new language here #}
 
   {% endif %}
 {% endmacro %}
