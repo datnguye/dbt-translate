@@ -4,12 +4,10 @@
 
 {% macro default__compile_money_to_words() %}
   {%- if execute -%}
-    {% set compile_sql -%}
-      CREATE SCHEMA IF NOT EXISTS {{var('num2words_schema', target.schema)}};
-      {{ dbt_translate.compile_money_to_words_en() }};
-      {#-- add new language here #}
-    {% endset %}
-    {% do run_query(compile_sql) %}
+  
+    CREATE SCHEMA IF NOT EXISTS {{var('num2words_schema', target.schema)}};
+    {{ dbt_translate.compile_money_to_words_en() }};
+    {#-- add new language here #}\
 
   {% endif %}
 {% endmacro %}
@@ -23,12 +21,9 @@
       END
     {% endset %}
     {% do run_query(create_schema) %}
-
-    {% set compile_sql -%}
-      {{ dbt_translate.compile_money_to_words_en() }};
-      {#-- add new language here #}
-    {% endset %}
-    {% do run_query(compile_sql) %}
+  
+    {{ dbt_translate.compile_money_to_words_en() }};
+    {#-- add new language here #}
 
   {% endif %}
 {% endmacro %}

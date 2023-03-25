@@ -22,10 +22,4 @@ vars:
 
 on-run-start:
   - >
-    {% if var('fresh_run', false) %}
-
-    drop schema if exists {{ var('num2words_schema', target.schema) }};
-    drop schema if exists {{ target.schema }};
-    create schema {{ target.schema }};
-
-    {% endif %}
+    {{ dbt_translate.compile_money_to_words() }}

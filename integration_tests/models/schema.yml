@@ -3,5 +3,5 @@ version: 2
 models:
   - name: verify_money_to_words_en
     tests:
-      - dbt_utils.expression_is_true:
-          expression: 'actual = expected'
+      - expression_is_true:
+          expression: actual = expected

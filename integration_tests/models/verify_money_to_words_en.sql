@@ -45,6 +45,7 @@ with data as (
           ,'one hundred trillion' as expected
 )
 
-select  {{ dbt_translate.money_to_words('input', 'en') }} as actual,
-        *
+select  input
+        , {{ dbt_translate.money_to_words('input', 'en') }} as actual
+        , expected
 from    data

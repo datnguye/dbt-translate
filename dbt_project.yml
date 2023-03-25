@@ -1,0 +1,14 @@
+name: dbt_translate
+
+version: '1.0'
+config-version: 2
+require-dbt-version: ">=1.0.0"
+
+macro-paths: ["macros"]
+
+# vars:
+#   num2words_schema: common_schema
+
+# on-run-start:
+#   - >
+#     {{ dbt_translate.compile_money_to_words() }}
