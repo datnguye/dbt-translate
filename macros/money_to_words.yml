@@ -1,0 +1,22 @@
+version: 2
+
+macros:
+  - name: money_to_words
+    description: |
+      Convert a number (money) to words e.g. 2000 = two thousand
+    docs:
+      show: true
+    arguments:
+      - name: column
+        type: string
+        description: Column name which holds the number value
+      - name: lang
+        type: string
+        description: Language code used, default to English ('en'). Currently supporting English only.
+
+  - name: default__money_to_words
+    docs:
+      show: false
+  - name: sqlserver__money_to_words
+    docs:
+      show: false

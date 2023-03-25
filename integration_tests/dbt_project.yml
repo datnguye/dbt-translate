@@ -1,0 +1,31 @@
+name: integration_tests
+
+profile: integration_tests
+
+version: '1.0'
+config-version: 2
+require-dbt-version: ">=1.0.0"
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+
+vars:
+  num2words_schema: common_schema
+
+on-run-start:
+  - >
+    {% if var('fresh_run', false) %}
+
+    drop schema if exists {{ var('num2words_schema', target.schema) }};
+    drop schema if exists {{ target.schema }};
+    create schema {{ target.schema }};
+
+    {% endif %}
