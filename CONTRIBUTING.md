@@ -9,7 +9,6 @@ Remember: all PRs (apart from cosmetic fixes like typos) should be [associated w
 1. [Setting up an environment](#setting-up-an-environment)
 1. [Implementation guidelines](#implementation-guidelines)
 1. [Testing dbt-translate](#testing)
-1. [Adding CHANGELOG Entry](#adding-changelog-entry)
 1. [Submitting a Pull Request](#submitting-a-pull-request)
 
 ## About this document
@@ -47,6 +46,13 @@ There are some tools that will be helpful to you in developing locally. While th
 These are the tools used in `dbt-translate` development and testing:
 - [`poetry`](https://python-poetry.org/docs/) to setup the local development environment
 - [Github Action](https://circleci.com/) for automating tests and checks, once a PR is pushed to the `dbt-translate` repository
+
+```
+python3 -m pip install poetry~=1.4.0
+python3 -m poetry install
+python3 -m poetry shell
+dbt --version
+```
 
 A deep understanding of these tools in not required to effectively contribute to `dbt-translate`, but we recommend checking out the attached documentation if you're interested in learning more about each one.
 

@@ -57,3 +57,5 @@ amount  amount_in_word
 
 ## Contributing ✨
 If you've ever wanted to contribute to this tool, and a great cause, feel free to create your Pull Request 💖
+
+Check [CONTRIBUTING.md](https://github.com/datnguye/dbt-translate/blob/main/CONTRIBUTING.md) for more details!
