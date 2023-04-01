@@ -18,7 +18,14 @@ Currently supporting:
 # packages.yml
 packages:
   - package: datnguye/dbt-translate
-    version: [">=0.1.0", "<1.0.0"]
+    version: [">=1.0.0", "<1.1.0"]
+```
+OR:
+```bash
+# packages.yml
+packages:
+  - git: "https://github.com/datnguye/dbt-translate.git"
+    revision: 1.0.0
 ```
 
 #### Register the common schema where holding the built-in stored procedure:
