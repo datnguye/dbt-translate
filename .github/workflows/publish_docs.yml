@@ -2,31 +2,43 @@ name: Build and Deploy MkDocs Site
 
 on:
   release:
-    types: [created]
+    types: [published]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Checkout Branch
+        uses: actions/checkout@v3
         with:
-          python-version: '3.x'
+          ref: ${{ github.event.release.tag_name }}
 
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material
 
-      - name: Copy README to Home
+      - name: Build site
         run: |
           cp -f README.md docs/index.md
+          mkdocs build --clean
 
-      - name: Build site
-        run: mkdocs build --clean
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
 
-      - name: Deploy site
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          path: 'site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
