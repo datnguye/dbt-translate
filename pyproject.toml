@@ -19,5 +19,5 @@ build-backend = "poetry.core.masonry.api"
 [tool.poe.tasks]
 hook_commit         = "pre-commit install --install-hooks"
 hook_commit_msg     = "pre-commit install --hook-type commit-msg"
-test_snowflake      = "dbt build --vars '{fresh_run: true}'--target snowflake"
-test_sqlserver      = "dbt build --vars '{fresh_run: true}' --target sqlserver"
+test_snowflake      = "dbt build --target snowflake"
+test_sqlserver      = "dbt build --target sqlserver"

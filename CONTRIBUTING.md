@@ -51,6 +51,8 @@ These are the tools used in `dbt-translate` development and testing:
 python3 -m pip install poetry~=1.4.0
 python3 -m poetry install
 python3 -m poetry shell
+poe hook_commit
+poe hook_commit_msg
 dbt --version
 ```
 
@@ -91,6 +93,11 @@ Alternatively:
 ```bash
 dbt deps --target {your_target}
 dbt build --target {your_target} --select +{your_model_name}
+```
+Alternatively using `poe`:
+```bash
+poe test_snowflake
+poe test_sqlserver
 ```
 If the tests all pass, then you're good to go! All tests will be run automatically when you create a PR against this repo.
 
