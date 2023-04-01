@@ -24,7 +24,7 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
 
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material mkdocs-dracula-theme
+        run: pip install mkdocs mkdocs-material
 
       - name: Build site
         run: |
