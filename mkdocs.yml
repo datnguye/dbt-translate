@@ -5,6 +5,7 @@ site_description: Offical documentation of `dbt-translate` dbt package
 
 repo_name: datnguye/dbt-translate
 repo_url: https://github.com/datnguye/dbt-translate
+edit_uri: edit/main/docs/
 
 copyright: Copyright &copy; 2023 Dat Nguyen
 
