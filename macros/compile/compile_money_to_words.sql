@@ -2,6 +2,7 @@
   {{ return(adapter.dispatch('compile_money_to_words', 'dbt_translate')()) }}
 {% endmacro %}
 
+
 {% macro default__compile_money_to_words() %}
   {%- if execute -%}
   
@@ -11,6 +12,7 @@
 
   {% endif %}
 {% endmacro %}
+
 
 {% macro sqlserver__compile_money_to_words() %}
   {%- if execute -%}
