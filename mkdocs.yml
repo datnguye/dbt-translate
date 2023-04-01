@@ -1,7 +1,18 @@
 site_name: ✨ Let's to translate Numbers to Words in dbt ✨
 
 theme:
-  name: gitbook
+  name: simple-blog
+  features:
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 
 plugins: []
 
