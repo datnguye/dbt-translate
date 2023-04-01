@@ -5,21 +5,7 @@ site_url: https://www.linkedin.com/in/tuiladat/
 copyright: Dat Nguyen
 
 theme:
-  name: simple-blog
-  theme_style: light
-  site_name_style: normal
-  title_style: bold
-  colors:
-    text: black
-    title: black
-    primary: black
-    background: white
-  components:
-    site_name: true
-    title: true
-    menu: true
-    preview: true
-    footer: true
+  name: dracula
   features:
     - content.code.copy
 
