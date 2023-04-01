@@ -1,10 +1,12 @@
 site_name: ✨ Let's to translate Numbers to Words in dbt ✨
-nav:
-  - Home: 'index.md'
-  # - User Guide:
-  #     - 'Getting Started': 'user-guide/getting-started.md'
-  - About:
-      - License: 'license.md'
-      - Release Notes: 'release-notes.md'
+
 theme:
   name: gitbook
+
+plugins: []
+
+extra:
+  nav:
+    sort_order: reverse
+
+repo_url: https://github.com/datnguye/dbt-translate

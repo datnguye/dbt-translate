@@ -1,9 +1,8 @@
 # dbt-translate
 ![dbt](https://img.shields.io/badge/dbt-packages-FF694B?logo=dbt&logoColor=FF694B)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ✨ Helps to convert **Numbers** to **Words** ✨
-
-<add demo>
 
 Currently supporting:
 
@@ -48,7 +47,7 @@ on-run-start:
 # model_something.sql
 with test as (
     select 2000 as amount
-    union all 
+    union all
     select 9999 as amount
 )
 select  amount
