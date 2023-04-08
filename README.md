@@ -1,5 +1,5 @@
 # dbt-translate
-![dbt](https://img.shields.io/badge/dbt-packages-FF694B?logo=dbt&logoColor=FF694B)
+[![dbt](https://img.shields.io/badge/dbt-packages-FF694B?logo=dbt&logoColor=FF694B)](https://hub.getdbt.com/datnguye/dbt_translate/latest/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub repo](https://img.shields.io/badge/inspired--by-mssql--num2words-brightgreen)](https://github.com/datnguye/mssql-num2words)
 
