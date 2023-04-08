@@ -18,10 +18,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout Branch
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v2
         with:
-          ref: ${{ github.event.release.tag_name }}
+          key: ${{ github.ref }}
+          path: .cache
 
       - name: Install dependencies
         run: pip install mkdocs mkdocs-material mkdocs-minify-plugin
