@@ -1,6 +1,6 @@
 # dbt-translate
 
-<img align="right" width="150" height="150" src="https://raw.githubusercontent.com/datnguye/dbt-translate/docs/assets/main/resp.jpg">
+<img align="right" width="150" height="150" src="https://raw.githubusercontent.com/datnguye/dbt-translate/main/docs/assets/img/resp.jpg">
 
 [![dbt](https://img.shields.io/badge/dbt-packages-FF694B?logo=dbt&logoColor=FF694B)](https://hub.getdbt.com/datnguye/dbt_translate/latest/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
