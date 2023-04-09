@@ -18,14 +18,15 @@ integration_tests:
 
     sqlserver:
       type: sqlserver
-      driver: 'ODBC Driver 17 for SQL Server'
+      driver: 'ODBC Driver 18 for SQL Server'
       server: "{{env_var('SQLSERVER_HOST')}}"
       port: "{{env_var('SQLSERVER_PORT') | int}}"
       database: "{{env_var('SQLSERVER_DATABASE')}}"
-      schema: dbt_resto_integration_tests_sqlserver
+      schema: "{{env_var('SQLSERVER_SCHEMA')}}"
       user: "{{env_var('SQLSERVER_USER')}}"
       password: "{{env_var('SQLSERVER_PASSWORD')}}"
       threads: 10
+      trust_cert: True
 
     postgres:
       type: postgres

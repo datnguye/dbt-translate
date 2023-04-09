@@ -1,0 +1,36 @@
+name: conitinous integration test
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  dbt-msft:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        msodbc_version: ["18"]
+        sqlserver_version: ["2022"]
+    container:
+      image: ghcr.io/dbt-msft/dbt-sqlserver:CI-3.9-msodbc${{ matrix.msodbc_version }}
+    services:
+      sqlserver:
+        image: ghcr.io/dbt-msft/dbt-sqlserver:server-${{ matrix.sqlserver_version }}
+        env:
+          ACCEPT_EULA: 'Y'
+          SA_PASSWORD: 5atyaNadell@
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run integration test
+        run: |
+          dbt deps -t sqlserver
+          dbt build -t sqlserver
+        env:
+          SQLSERVER_HOST: localhost
+          SQLSERVER_PORT: 1433
+          SQLSERVER_DATABASE:
+          SQLSERVER_USER: sa
+          SQLSERVER_PASSWORD: 5atyaNadell@
+          SQLSERVER_SCHEMA: PRCI_${{ github.sha }}
