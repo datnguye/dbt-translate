@@ -2,7 +2,7 @@ config:
     send_anonymous_usage_stats: False
     use_colors: True
 
-integration_tests:
+integration_tests_dbt_translate:
   target: snowflake
   outputs:
     snowflake:
