@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: pip install -r dev_requirements.txt
+        run: pip install dbt-sqlserver
 
       - name: Copy profiles
         run: |
