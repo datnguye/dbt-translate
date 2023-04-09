@@ -6,6 +6,8 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub repo](https://img.shields.io/badge/inspired--by-mssql--num2words-brightgreen)](https://github.com/datnguye/mssql-num2words)
 
+[![conitinous integration test](https://github.com/datnguye/dbt-translate/actions/workflows/ci-pr.yml/badge.svg)](https://github.com/datnguye/dbt-translate/actions/workflows/ci-pr.yml)
+
 ✨ Helps to convert **Numbers** to **Words** ✨
 
 Currently supporting:

@@ -1,4 +1,4 @@
-site_name: ✨ Numbers to Words in dbt ✨
+site_name: Numbers to Words in dbt
 site_url: https://datnguye.github.io/dbt-translate/
 site_author: Dat Nguyen
 site_description: Offical documentation of `dbt-translate` dbt package
@@ -63,9 +63,13 @@ plugins:
   - minify:
       minify_html: true
   - offline
+  - mkdocs-simple-hooks:
+      hooks:
+        on_post_build: "docs.hooks:copy_dbt_docs"
 
 nav:
-  - dbt-translate: index.md
+  - ✨dbt-translate: index.md
+  - 👉dbt docs: dbt-docs/index.html # managed by hooks.copy_dbt_docs
   - Development:
     - nav/development/contributing-guide.md
     - nav/development/release-notes.md
@@ -75,9 +79,6 @@ nav:
 extra:
   annotate:
     json: [.s2]
-  # analytics:
-  #   provider: google
-  #   property: !ENV GOOGLE_ANALYTICS_KEY
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/datnguye
