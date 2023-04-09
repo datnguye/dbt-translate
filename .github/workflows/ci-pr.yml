@@ -22,9 +22,11 @@ jobs:
           SA_PASSWORD: 5atyaNadell@
     steps:
       - uses: actions/checkout@v3
-
       - name: Run integration test
         run: |
+          cd integration_tests
+          cp profiles/profiles.yml profiles.yml
+          export DBT_PROFILES_DIR=.
           dbt deps -t sqlserver
           dbt build -t sqlserver
         env:
