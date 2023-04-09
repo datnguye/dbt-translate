@@ -6,14 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  dbt-msft:
+  integration-tests-sqlserver:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        msodbc_version: ["18"]
-        sqlserver_version: ["2022"]
+        sqlserver_version: ["2017", "2019", "2022"]
     container:
-      image: ghcr.io/dbt-msft/dbt-sqlserver:CI-3.9-msodbc${{ matrix.msodbc_version }}
+      image: ghcr.io/dbt-msft/dbt-sqlserver:CI-3.10-msodbc18
     services:
       sqlserver:
         image: ghcr.io/dbt-msft/dbt-sqlserver:server-${{ matrix.sqlserver_version }}
@@ -22,16 +21,24 @@ jobs:
           SA_PASSWORD: 5atyaNadell@
     steps:
       - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: pip install -r dev_requirements.txt
+
+      - name: Copy profiles
+        run: |
+          mkdir -p ~/.dbt
+          cp profiles/profiles.yml ~/.dbt/profiles.yml
+
       - name: Run integration test
         run: |
-          cd integration_tests
-          cp profiles/profiles.yml profiles.yml
-          export DBT_PROFILES_DIR=.
           dbt deps -t sqlserver
           dbt build -t sqlserver
+        working-directory: integration_tests
         env:
-          SQLSERVER_HOST: localhost
+          SQLSERVER_HOST: sqlserver
           SQLSERVER_PORT: 1433
+          SQLSERVER_DATABASE: msdb
           SQLSERVER_DATABASE:
           SQLSERVER_USER: sa
           SQLSERVER_PASSWORD: 5atyaNadell@
