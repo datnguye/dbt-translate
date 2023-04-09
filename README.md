@@ -2,11 +2,14 @@
 
 <img align="right" width="200" height="200" src="https://raw.githubusercontent.com/datnguye/dbt-translate/main/docs/assets/img/resp.jpg">
 
+[![dbt-translate](https://img.shields.io/badge/official--documentation--site-visit-blueviolet)](https://dbt-translate.datnguyen.de/)
+
 [![dbt](https://img.shields.io/badge/dbt-packages-FF694B?logo=dbt&logoColor=FF694B)](https://hub.getdbt.com/datnguye/dbt_translate/latest/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub repo](https://img.shields.io/badge/inspired--by-mssql--num2words-brightgreen)](https://github.com/datnguye/mssql-num2words)
 
 [![conitinous integration test](https://github.com/datnguye/dbt-translate/actions/workflows/ci-pr.yml/badge.svg)](https://github.com/datnguye/dbt-translate/actions/workflows/ci-pr.yml)
+
 
 ✨ Helps to convert **Numbers** to **Words** ✨
 
