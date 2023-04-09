@@ -1,4 +1,4 @@
-name: Build and Deploy MkDocs Site
+name: deploy documentation site
 
 on:
   release:
@@ -8,6 +8,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        sqlserver_version: ["2022"]
+    container:
+      image: ghcr.io/dbt-msft/dbt-sqlserver:CI-3.10-msodbc18
+    services:
+      sqlserver:
+        image: ghcr.io/dbt-msft/dbt-sqlserver:server-${{ matrix.sqlserver_version }}
+        env:
+          ACCEPT_EULA: 'Y'
+          SA_PASSWORD: 5atyaNadell@
 
     permissions:
       pages: write      # to deploy to Pages
@@ -25,7 +37,24 @@ jobs:
           path: .cache
 
       - name: Install dependencies
-        run: pip install mkdocs mkdocs-material mkdocs-minify-plugin
+        run: |
+          pip install dbt-sqlserver
+          pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-simple-hooks
+
+      - name: Build dbt docs site
+        run: |
+          mkdir -p ~/.dbt
+          cp profiles/profiles.yml ~/.dbt/profiles.yml
+          dbt deps -t sqlserver
+          dbt docs generate -t sqlserver
+        working-directory: integration_tests
+        env:
+          SQLSERVER_HOST: sqlserver
+          SQLSERVER_PORT: 1433
+          SQLSERVER_DATABASE: msdb
+          SQLSERVER_USER: sa
+          SQLSERVER_PASSWORD: 5atyaNadell@
+          SQLSERVER_SCHEMA: docs
 
       - name: Build site
         run: |
