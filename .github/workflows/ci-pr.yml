@@ -39,7 +39,6 @@ jobs:
           SQLSERVER_HOST: sqlserver
           SQLSERVER_PORT: 1433
           SQLSERVER_DATABASE: msdb
-          SQLSERVER_DATABASE:
           SQLSERVER_USER: sa
           SQLSERVER_PASSWORD: 5atyaNadell@
           SQLSERVER_SCHEMA: PRCI_${{ github.sha }}
