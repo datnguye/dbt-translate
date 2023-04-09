@@ -69,3 +69,6 @@ amount  amount_in_word
 If you've ever wanted to contribute to this tool, and a great cause, feel free to create your Pull Request 💖
 
 Check [CONTRIBUTING.md](https://github.com/datnguye/dbt-translate/blob/main/CONTRIBUTING.md) for more details!
+
+[![buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?logo=buy-me-a-coffee&logoColor=white&labelColor=ff813f&style=for-the-badge)](https://www.buymeacoffee.com/datnguye)
+
